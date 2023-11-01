@@ -2,11 +2,14 @@ pipeline {
   agent any
 
   stages {
-      stage('Build Artifact') {
-            steps {
-              sh "mvn clean package -DskipTests=true"
-              archive 'target/*.jar' //myown comment
-            }
+      stage('GIT Version') {
+         \\   steps {
+           \\   sh "mvn clean package -DskipTests=true"
+             \\ archive 'target/*.jar' //myown comment
+           \\ }
+        steps{
+          sh "git version"
+        }
         }   
     }
 }
